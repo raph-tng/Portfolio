@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloc 5 - Conduire | Raphaël Tanguy</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="../pictures/heading.png">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background-color: #f5f7fa;
+        }
+
+        .bloc-header {
+            background: linear-gradient(135deg, #5d42f5, var(--secondary-color));
+            padding: 120px 0 60px;
+            text-align: center;
+            color: white;
+            margin-bottom: 0;
+            width: 100%;
+        }
+
+        .bloc-title {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .bloc-description {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.3rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .container {
+            width: 100%;
+            max-width: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .content-section {
+            width: 100%;
+            padding: 80px 0;
+            margin: 0;
+            position: relative;
+        }
+
+        .content-section:nth-child(even) {
+            background-color: white;
+        }
+
+        .content-section:nth-child(odd) {
+            background-color: #f7f9fc;
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .content-title {
+            font-size: 2.2rem;
+            color: #5d42f5;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+            position: relative;
+            font-weight: 600;
+        }
+
+        .content-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .projects-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-bottom: 20px;
+        }
+
+        .project-card {
+            display: flex;
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-image {
+            flex: 0 0 30%;
+            min-width: 200px;
+        }
+
+        .project-placeholder {
+            height: 100%;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(120deg, var(--secondary-color), #5d42f5);
+            color: white;
+            font-size: 3rem;
+        }
+
+        .project-info {
+            flex: 1;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #5d42f5;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn-small {
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            background-color: #5d42f5;
+            color: white;
+            text-decoration: none;
+        }
+
+        .btn-small:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background-color: var(--secondary-color);
+        }
+
+        .evaluation-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .evaluation-item {
+            flex: 1 1 calc(33.333% - 30px);
+            min-width: 250px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .evaluation-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .evaluation-item h4 {
+            margin-bottom: 15px;
+            color: #5d42f5;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .evaluation-item p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .skill-level {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .skill-level-text {
+            font-weight: 700;
+            margin-right: 15px;
+            width: 120px;
+            color: #333;
+        }
+
+        .skill-bar {
+            flex-grow: 1;
+            height: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            border-radius: 5px;
+            background: linear-gradient(90deg, #5d42f5, var(--secondary-color));
+            transition: width 1s ease-in-out;
+        }
+
+        .back-btn-section {
+            width: 100%;
+            text-align: center;
+            padding: 60px 0;
+            background-color: white;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 40px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background-color: #5d42f5;
+            color: white;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            background-color: var(--secondary-color);
+        }
+
+        .back-btn i {
+            margin-right: 10px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animated {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .content-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-radius: 3px;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .section-inner {
+                padding: 0 30px;
+            }
+            
+            .evaluation-item {
+                flex: 1 1 calc(50% - 30px);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .bloc-header {
+                padding: 80px 0 40px;
+            }
+            
+            .bloc-title {
+                font-size: 2.2rem;
+            }
+            
+            .bloc-description {
+                font-size: 1.1rem;
+            }
+            
+            .content-section {
+                padding: 50px 0;
+            }
+            
+            .section-inner {
+                padding: 0 20px;
+            }
+            
+            .project-card {
+                flex-direction: column;
+            }
+            
+            .project-image {
+                flex: none;
+            }
+            
+            .project-placeholder {
+                height: 150px;
+            }
+            
+            .evaluation-item {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="https://see.fontimg.com/api/rf5/dE0g/NmU5ZTRmNmJkZGFkNDMzNjg3YWFmMjk2NjUzMGY4YTEudHRm/UmFwaGHDq2w/beautiful-people-personal-use.png?r=fs&h=65&w=1000&fg=000000&bg=FFFFFF&tb=1&s=65" alt="logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html#apropos">À propos</a></li>
+                <li><a href="../index.html#parcours">Parcours</a></li>
+                <li><a href="../index.html#competences">Compétences</a></li>
+                <li><a href="../index.html#projets">Projets</a></li>
+                <li><a href="../index.html#blocs">Blocs</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="bloc-header">
+        <div class="section-inner">
+            <h1 class="bloc-title">Bloc 5 - Conduire</h1>
+            <p class="bloc-description">Appliquer une démarche de suivi des projets en fonction des besoins métiers des clients et des utilisateurs</p>
+        </div>
+    </div>
+
+        <div class="content-section">
+            <div class="section-inner">
+                <h2 class="content-title">Présentation du bloc</h2>
+                <p>Le bloc "Réaliser" est au cœur de la formation en BUT Informatique et constitue la base du métier de développeur. Ce bloc de compétences comprend l'ensemble des savoir-faire nécessaires pour transformer des exigences fonctionnelles en applications opérationnelles. Il englobe plusieurs aspects fondamentaux :</p>
+                <ul style="margin-top: 20px; margin-left: 20px;">
+                    <li>L'analyse des besoins et la compréhension des exigences client</li>
+                    <li>La conception d'architecture logicielle adaptée aux besoins</li>
+                    <li>Le développement d'interfaces utilisateur intuitives et accessibles</li>
+                    <li>La programmation des fonctionnalités backend robustes</li>
+                    <li>L'écriture de tests pour garantir la qualité du code</li>
+                    <li>La documentation des solutions développées</li>
+                </ul>
+                <p style="margin-top: 20px;">Ce bloc forme la pierre angulaire des compétences techniques d'un développeur, permettant de créer des applications complètes et fonctionnelles de bout en bout.</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-inner">
+                <h2 class="content-title">Projets associés</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <div class="project-placeholder">
+                                <i class="fas fa-code"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Travia</h3>
+                            <p>Plateforme de réservation de voyages intergalactiques développée en équipe. J'ai participé à la conception de l'architecture, au développement des interfaces utilisateur et à l'implémentation des fonctionnalités de réservation.</p>
+                            <div class="project-links">
+                                <a href="#" class="btn-small">Voir le projet</a>
+                                <a href="#" class="btn-small">Code source</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <div class="project-placeholder">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Portfolio personnel</h3>
+                            <p>Conception et développement de ce portfolio pour présenter mes compétences et mes projets. Utilisation de HTML, CSS et JavaScript pour créer une expérience utilisateur fluide et responsive.</p>
+                            <div class="project-links">
+                                <a href="#" class="btn-small">Code source</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-inner">
+                <h2 class="content-title">Mon avis</h2>
+                <p>Le bloc "Réaliser" représente pour moi l'essence même du métier de développeur. C'est la compétence qui m'a initialement attiré vers l'informatique : la capacité de transformer une idée en une application fonctionnelle que les utilisateurs peuvent manipuler.</p>
+                <p style="margin-top: 15px;">J'apprécie particulièrement la dimension créative de ce bloc, qui combine des aspects techniques (architecture, programmation) avec des considérations plus orientées utilisateur (ergonomie, design d'interface). Cette dualité rend le travail de développement particulièrement stimulant.</p>
+                <p style="margin-top: 15px;">Les projets réalisés dans le cadre de ce bloc m'ont permis de consolider mes connaissances en développement web et de découvrir les bonnes pratiques pour créer des applications maintenables sur le long terme. J'ai notamment appris l'importance d'une conception réfléchie avant de se lancer dans le codage.</p>
+                <p style="margin-top: 15px;">Mon expérience avec ce bloc m'a également fait prendre conscience de l'importance de la communication avec les clients ou utilisateurs finaux. Comprendre précisément leurs besoins est essentiel pour développer une solution qui répond véritablement à leurs attentes.</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-inner">
+                <h2 class="content-title">Auto-évaluation</h2>
+                <p>Après deux années de formation et plusieurs projets, voici mon auto-évaluation sur les différentes compétences liées au bloc "Réaliser" :</p>
+                
+                <div class="evaluation-grid">
+                    <div class="evaluation-item">
+                        <h4>Analyse des besoins</h4>
+                        <p>Capacité à comprendre et formaliser les exigences clients</p>
+                        <div class="skill-level">
+                            <span class="skill-level-text">Bon</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="evaluation-item">
+                        <h4>Conception</h4>
+                        <p>Capacité à concevoir une architecture logicielle adaptée</p>
+                        <div class="skill-level">
+                            <span class="skill-level-text">Intermédiaire</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 65%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="evaluation-item">
+                        <h4>Frontend</h4>
+                        <p>Développement d'interfaces utilisateur (HTML, CSS, JS)</p>
+                        <div class="skill-level">
+                            <span class="skill-level-text">Très bon</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="evaluation-item">
+                        <h4>Backend</h4>
+                        <p>Développement côté serveur (PHP, Java)</p>
+                        <div class="skill-level">
+                            <span class="skill-level-text">Bon</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="evaluation-item">
+                        <h4>Testing</h4>
+                        <p>Mise en place de tests unitaires et fonctionnels</p>
+                        <div class="skill-level">
+                            <span class="skill-level-text">À améliorer</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 50%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="evaluation-item">
+                        <h4>Documentation</h4>
+                        <p>Capacité à documenter le code et les solutions</p>
+                        <div class="skill-level">
+                            <span class="skill-level-text">Bon</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+            
+                <p style="margin-top: 30px;">Je suis particulièrement à l'aise avec le développement frontend, où j'ai acquis une bonne maîtrise des technologies web modernes. Je souhaite continuer à me perfectionner dans les aspects de conception d'architecture et de tests, qui sont essentiels pour assurer la qualité et la maintenabilité des applications à long terme.</p>
+            </div>
+        </div>
+        
+        <section class="back-btn-section">
+            <a href="../index.html#blocs" class="btn back-btn"><i class="fas fa-arrow-left"></i> Retour aux blocs</a>
+            <a href="./bloc6.html" class="btn back-btn"><i class="fas fa-arrow-right"></i> Bloc suivant</a>
+        </section>
+
+    <footer>
+        <p>&copy; Raphaël Tanguy 2025.</p>
+    </footer>
+
+    <script>
+        document.querySelector('.burger').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+            document.querySelector('.burger').classList.toggle('toggle');
+        });
+    </script>
+</body>
+</html>

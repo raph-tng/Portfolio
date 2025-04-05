@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloc 2 - Optimiser | Raphaël Tanguy</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="../pictures/heading.png">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background-color: #f5f7fa;
+        }
+
+        .bloc-header {
+            background: linear-gradient(135deg, #f59942, var(--secondary-color));
+            padding: 120px 0 60px;
+            text-align: center;
+            color: white;
+            margin-bottom: 0;
+            width: 100%;
+        }
+
+        .bloc-title {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .bloc-description {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.3rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .container {
+            width: 100%;
+            max-width: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .content-section {
+            width: 100%;
+            padding: 80px 0;
+            margin: 0;
+            position: relative;
+        }
+
+        .content-section:nth-child(even) {
+            background-color: white;
+        }
+
+        .content-section:nth-child(odd) {
+            background-color: #f7f9fc;
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .content-title {
+            font-size: 2.2rem;
+            color: #f59942;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+            position: relative;
+            font-weight: 600;
+        }
+
+        .content-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .projects-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-bottom: 20px;
+        }
+
+        .project-card {
+            display: flex;
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-image {
+            flex: 0 0 30%;
+            min-width: 200px;
+        }
+
+        .project-placeholder {
+            height: 100%;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(120deg, var(--secondary-color), #f59942);
+            color: white;
+            font-size: 3rem;
+        }
+
+        .project-info {
+            flex: 1;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #f59942;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn-small {
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            background-color: #f59942;
+            color: white;
+            text-decoration: none;
+        }
+
+        .btn-small:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background-color: var(--secondary-color);
+        }
+
+        .evaluation-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .evaluation-item {
+            flex: 1 1 calc(33.333% - 30px);
+            min-width: 250px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .evaluation-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .evaluation-item h4 {
+            margin-bottom: 15px;
+            color: #f59942;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .evaluation-item p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .skill-level {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .skill-level-text {
+            font-weight: 700;
+            margin-right: 15px;
+            width: 120px;
+            color: #333;
+        }
+
+        .skill-bar {
+            flex-grow: 1;
+            height: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            border-radius: 5px;
+            background: linear-gradient(90deg, #f59942, var(--secondary-color));
+            transition: width 1s ease-in-out;
+        }
+
+        .back-btn-section {
+            width: 100%;
+            text-align: center;
+            padding: 60px 0;
+            background-color: white;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 40px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background-color: #f59942;
+            color: white;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            background-color: var(--secondary-color);
+        }
+
+        .back-btn i {
+            margin-right: 10px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animated {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .content-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-radius: 3px;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .section-inner {
+                padding: 0 30px;
+            }
+            
+            .evaluation-item {
+                flex: 1 1 calc(50% - 30px);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .bloc-header {
+                padding: 80px 0 40px;
+            }
+            
+            .bloc-title {
+                font-size: 2.2rem;
+            }
+            
+            .bloc-description {
+                font-size: 1.1rem;
+            }
+            
+            .content-section {
+                padding: 50px 0;
+            }
+            
+            .section-inner {
+                padding: 0 20px;
+            }
+            
+            .project-card {
+                flex-direction: column;
+            }
+            
+            .project-image {
+                flex: none;
+            }
+            
+            .project-placeholder {
+                height: 150px;
+            }
+            
+            .evaluation-item {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="https://see.fontimg.com/api/rf5/dE0g/NmU5ZTRmNmJkZGFkNDMzNjg3YWFmMjk2NjUzMGY4YTEudHRm/UmFwaGHDq2w/beautiful-people-personal-use.png?r=fs&h=65&w=1000&fg=000000&bg=FFFFFF&tb=1&s=65" alt="logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html#apropos">À propos</a></li>
+                <li><a href="../index.html#parcours">Parcours</a></li>
+                <li><a href="../index.html#competences">Compétences</a></li>
+                <li><a href="../index.html#projets">Projets</a></li>
+                <li><a href="../index.html#blocs">Blocs</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="bloc-header">
+        <div class="section-inner">
+            <h1 class="bloc-title">Bloc 2 - Optimiser</h1>
+            <p class="bloc-description">Sélectionner les algorithmes adéquats pour répondre à un problème donné</p>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <div class="section-inner">
+            <h2 class="content-title">Présentation du bloc</h2>
+            <p>Le bloc "Optimiser" se concentre sur l'aspect algorithmique de l'informatique, essentiel pour créer des applications performantes et efficaces. Ce bloc de compétences vise à développer la capacité à :</p>
+            <ul style="margin-top: 20px; margin-left: 20px;">
+                <li>Analyser des problèmes complexes et les décomposer en sous-problèmes</li>
+                <li>Connaître et sélectionner les structures de données adaptées</li>
+                <li>Maîtriser les algorithmes classiques et leurs complexités</li>
+                <li>Optimiser le code pour améliorer les performances</li>
+                <li>Résoudre des problèmes algorithmiques avec efficacité</li>
+                <li>Évaluer et comparer différentes solutions algorithmiques</li>
+            </ul>
+            <p style="margin-top: 20px;">Ce bloc est fondamental pour développer un esprit analytique et la capacité à penser de manière logique et structurée, des qualités essentielles pour tout informaticien.</p>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <div class="section-inner">
+            <h2 class="content-title">Projets associés</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Optimisation de recherche</h3>
+                        <p>Développement d'un système de recherche optimisé pour une large base de données. Implémentation d'un algorithme de tri hybride et d'une structure d'index pour des requêtes rapides.</p>
+                        <div class="project-links">
+                            <a href="#" class="btn-small">Voir le projet</a>
+                            <a href="#" class="btn-small">Code source</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-route"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Algorithme de pathfinding</h3>
+                        <p>Implémentation et comparaison de différents algorithmes de recherche de chemin (A*, Dijkstra, BFS) pour déterminer les itinéraires optimaux dans une application de navigation.</p>
+                        <div class="project-links">
+                            <a href="#" class="btn-small">Voir le projet</a>
+                            <a href="#" class="btn-small">Code source</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <div class="section-inner">
+            <h2 class="content-title">Mon avis</h2>
+            <p>Le bloc "Optimiser" est pour moi l'un des aspects les plus fascinants de l'informatique. La résolution de problèmes algorithmiques représente un défi intellectuel stimulant qui m'a permis de développer ma capacité d'analyse et mon raisonnement logique.</p>
+            <p style="margin-top: 15px;">Ce qui me passionne particulièrement dans ce domaine, c'est la satisfaction de trouver une solution élégante et efficace à un problème complexe. Il y a quelque chose de gratifiant à observer les améliorations de performance lorsqu'on passe d'un algorithme naïf à une implémentation optimisée.</p>
+            <p style="margin-top: 15px;">Les projets liés à ce bloc m'ont permis de comprendre l'importance de l'efficacité algorithmique dans les applications réelles. J'ai appris que le choix des structures de données et des algorithmes a un impact direct et significatif sur les performances des logiciels, surtout lorsqu'ils doivent traiter de grands volumes de données.</p>
+            <p style="margin-top: 15px;">Je considère cette compétence comme essentielle pour tout développeur, car elle transcende les langages de programmation et les technologies spécifiques. Les principes d'optimisation algorithmique sont universels et constituent un socle de connaissances durables dans un domaine où les technologies évoluent rapidement.</p>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <div class="section-inner">
+            <h2 class="content-title">Auto-évaluation</h2>
+            <p>Après avoir travaillé sur divers projets nécessitant des optimisations algorithmiques, voici mon auto-évaluation sur les différentes compétences liées au bloc "Optimiser" :</p>
+            
+            <div class="evaluation-grid">
+                <div class="evaluation-item">
+                    <h4>Structures de données</h4>
+                    <p>Maîtrise des structures de données fondamentales et avancées</p>
+                    <div class="skill-level">
+                        <span class="skill-level-text">Bon</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="evaluation-item">
+                    <h4>Algorithmes de tri</h4>
+                    <p>Compréhension et implémentation des algorithmes de tri</p>
+                    <div class="skill-level">
+                        <span class="skill-level-text">Très bon</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="evaluation-item">
+                    <h4>Algorithmes de graphes</h4>
+                    <p>Maîtrise des algorithmes de parcours et recherche de chemin</p>
+                    <div class="skill-level">
+                        <span class="skill-level-text">Intermédiaire</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 65%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="evaluation-item">
+                    <h4>Complexité algorithmique</h4>
+                    <p>Analyse de la complexité temporelle et spatiale</p>
+                    <div class="skill-level">
+                        <span class="skill-level-text">Bon</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="evaluation-item">
+                    <h4>Programmation dynamique</h4>
+                    <p>Résolution de problèmes par programmation dynamique</p>
+                    <div class="skill-level">
+                        <span class="skill-level-text">À améliorer</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 55%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="evaluation-item">
+                    <h4>Optimisation de code</h4>
+                    <p>Capacité à optimiser le code existant pour de meilleures performances</p>
+                    <div class="skill-level">
+                        <span class="skill-level-text">Bon</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <p style="margin-top: 30px;">Je me sens à l'aise avec les structures de données fondamentales et les algorithmes de tri, domaines dans lesquels j'ai eu l'occasion de mettre en pratique mes connaissances sur plusieurs projets. J'ai identifié la programmation dynamique et les algorithmes de graphes comme des axes d'amélioration sur lesquels je souhaite me perfectionner, notamment à travers des projets personnels et des exercices dédiés.</p>
+        </div>
+    </div>
+    
+    <section class="back-btn-section">
+        <a href="../index.html#blocs" class="btn back-btn"><i class="fas fa-arrow-left"></i> Retour aux blocs</a>
+        <a href="./bloc3.html" class="btn back-btn"><i class="fas fa-arrow-right"></i> Bloc suivant</a>
+    </section>
+
+    <footer>
+        <p>&copy; Raphaël Tanguy 2025.</p>
+    </footer

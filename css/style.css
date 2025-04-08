@@ -197,8 +197,8 @@ nav {
     transition: var(--transition);
 }
 
-/* Hero */
-.hero {
+/* icon */
+.icon {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -207,12 +207,12 @@ nav {
     background: linear-gradient(135deg, #f5f7fa 0%, #e8eaed 100%);
 }
 
-.hero-content {
+.icon-content {
     flex: 1;
     max-width: 600px;
 }
 
-.hero-content h2 {
+.icon-content h2 {
     font-size: 3.5rem;
     font-weight: 800;
     margin-bottom: 20px;
@@ -223,24 +223,24 @@ nav {
     color: transparent;
 }
 
-.hero-content span {
+.icon-content span {
     color: var(--primary-color);
 }
 
-.hero-content h3 {
+.icon-content h3 {
     font-size: 1.5rem;
     color: var(--gray-color);
     margin-bottom: 20px;
     font-weight: 600;
 }
 
-.hero-content p {
+.icon-content p {
     font-size: 1.1rem;
     margin-bottom: 30px;
     color: var(--gray-color);
 }
 
-.hero-image {
+.icon-image {
     flex: 1;
     display: flex;
     justify-content: center;
@@ -799,18 +799,18 @@ footer {
     }
 }
 
-.section-title, .hero-content, .project-card, .bloc-card, .timeline-block {
+.section-title, .icon-content, .project-card, .bloc-card, .timeline-block {
     animation: fadeIn 0.8s ease-out forwards;
 }
 
 @media screen and (max-width: 1024px) {
-    .hero {
+    .icon {
         flex-direction: column;
         text-align: center;
         padding-top: 150px;
     }
 
-    .hero-content {
+    .icon-content {
         margin-bottom: 50px;
     }
 
@@ -901,7 +901,7 @@ footer {
         transform: rotate(45deg) translate(-5px, -6px);
     }
 
-    .hero-content h2 {
+    .icon-content h2 {
         font-size: 2.5rem;
     }
 

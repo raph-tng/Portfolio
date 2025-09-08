@@ -337,6 +337,10 @@ nav {
     border-left: 4px solid var(--stage-color);
 }
 
+.timeline-content.brother {
+    border-left: 4px solid var(--brother-color);
+}
+
 .timeline-marker {
     position: absolute;
     top: 0;
@@ -1023,3 +1027,4 @@ footer {
     height: 100%;
 
 }
+

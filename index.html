@@ -19,7 +19,7 @@
             <ul class="nav-links">
                 <li><a href="#apropos">À propos</a></li>
                 <li><a href="#parcours">Parcours</a></li>
-                <li><a href="#competences">Compétences</a></li>
+                <li><a href="#skills">Compétences</a></li>
                 <li><a href="#projets">Projets</a></li>
                 <li><a href="#blocs">Blocs</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -95,86 +95,46 @@
 
     <section id="skills">
         <h2 class="section-title">Mes compétences</h2>
-        <div class="container">
-            <div class="skill-box">
-                <div class="skill-title">
-                    <div class="img">
-                        <img src="./pictures/html-5.png" class="skill-icon">
-                    </div>
-                    <h4>HTML5</h4>
-                </div>
+        <div class="skills-bubble-container">
+            <div class="skill-bubble" data-skill="HTML5" data-icon="./pictures/html-5.png">
+                <img src="./pictures/html-5.png" class="bubble-icon">
+                <span class="bubble-label">HTML5</span>
             </div>
-            <div class="skill-box">
-                <div class="skill-title">
-                    <div class="img">
-                        <img src="./pictures/css-3.png" class="skill-icon">
-                    </div>
-                    <h4>CSS3</h4>
-                </div>
+            <div class="skill-bubble" data-skill="CSS3" data-icon="./pictures/css-3.png">
+                <img src="./pictures/css-3.png" class="bubble-icon">
+                <span class="bubble-label">CSS3</span>
             </div>
-            <div class="skill-box">
-                <div class="skill-title">
-                    <div class="img">
-                        <img src="./pictures/js.png" class="skill-icon">
-                    </div>
-                    <h4>JavaScript</h4>
-                </div>
+            <div class="skill-bubble" data-skill="JavaScript" data-icon="./pictures/js.png">
+                <img src="./pictures/js.png" class="bubble-icon">
+                <span class="bubble-label">JavaScript</span>
             </div>
-            <div class="skill-box">
-                <div class="skill-title">
-                    <div class="img">
-                        <img src="./pictures/php.png" class="skill-icon">
-                    </div>
-                    <h4>PHP</h4>
-                </div>
+            <div class="skill-bubble" data-skill="PHP" data-icon="./pictures/php.png">
+                <img src="./pictures/php.png" class="bubble-icon">
+                <span class="bubble-label">PHP</span>
             </div>
-            <div class="skill-box">
-                <div class="skill-title">
-                    <div class="img">
-                        <img src="./pictures/python.png" class="skill-icon">
-                    </div>
-                    <h4>Python</h4>
-                </div>
+            <div class="skill-bubble" data-skill="Python" data-icon="./pictures/python.png">
+                <img src="./pictures/python.png" class="bubble-icon">
+                <span class="bubble-label">Python</span>
             </div>
-            <div class="skill-box">
-                <div class="skill-title">
-                    <div class="img">
-                        <img src="./pictures/java.png" class="skill-icon">
-                    </div>
-                    <h4>Java</h4>
-                </div>
+            <div class="skill-bubble" data-skill="Java" data-icon="./pictures/java.png">
+                <img src="./pictures/java.png" class="bubble-icon">
+                <span class="bubble-label">Java</span>
             </div>
-            <div class="skill-box">
-                <div class="skill-title">
-                    <div class="img">
-                        <img src="./pictures/C.png" class="skill-icon">
-                    </div>
-                    <h4>C</h4>
-                </div>
+            <div class="skill-bubble" data-skill="C" data-icon="./pictures/C.png">
+                <img src="./pictures/C.png" class="bubble-icon">
+                <span class="bubble-label">C</span>
             </div>
-            <div class="skill-box">
-                <div class="skill-title">
-                    <div class="img">
-                        <img src="./pictures/sql.png" class="skill-icon">
-                    </div>
-                    <h4>SQL</h4>
-                </div>
+            <div class="skill-bubble" data-skill="SQL" data-icon="./pictures/sql.png">
+                <img src="./pictures/sql.png" class="bubble-icon">
+                <span class="bubble-label">SQL</span>
             </div>
-            <div class="skill-box">
-                <div class="skill-title">
-                    <div class="img">
-                        <img src="./pictures/react.png" class="skill-icon">
-                    </div>
-                    <h4>React</h4>
-                </div>
+            <div class="skill-bubble" data-skill="React" data-icon="./pictures/react.png">
+                <img src="./pictures/react.png" class="bubble-icon">
+                <span class="bubble-label">React</span>
             </div>
-            <div class="skill-box">
-                <div class="skill-title">
-                    <div class="img">
-                        <img src="./pictures/django.png" class="skill-icon">
-                    </div>
-                    <h4>Django</h4>
-                </div>
+            <div class="skill-bubble" data-skill="Django" data-icon="./pictures/django.png">
+                <img src="./pictures/django.png" class="bubble-icon">
+                <span class="bubble-label">Django</span>
             </div>
         </div>
     </section>
@@ -375,14 +335,41 @@
         </div>
     </section>
 
+    <!-- Modal Popup pour les compétences -->
+    <div class="skill-modal" id="skillModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeSkillModal()">&times;</button>
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <img id="modalIcon" src="" alt="Skill Icon">
+                </div>
+                <div class="modal-title">
+                    <h2 id="modalSkillName"></h2>
+                    <p id="modalSkillCategory"></p>
+                </div>
+            </div>
+            <div class="modal-body" id="modalBody">
+            </div>
+        </div>
+    </div>
+
     <footer>
         <p>&copy; Raphaël Tanguy 2025.</p>
     </footer>
 
     <script>
+        // Menu burger - fermeture automatique au clic sur un lien
         document.querySelector('.burger').addEventListener('click', function() {
             document.querySelector('.nav-links').classList.toggle('active');
             document.querySelector('.burger').classList.toggle('toggle');
+        });
+
+        // Fermer le menu burger quand on clique sur un lien
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('.nav-links').classList.remove('active');
+                document.querySelector('.burger').classList.remove('toggle');
+            });
         });
 
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -394,7 +381,198 @@
             });
         });
 
+        // Données des compétences
+        const skillsData = {
+            'HTML5': {
+                category: 'Langage de balisage',
+                description: 'HTML5 est le langage de base pour structurer le contenu web. Je maîtrise la création de structures sémantiques, l\'utilisation des balises modernes et l\'accessibilité.',
+                experience: 'Niveau avancé - 3 ans d\'expérience',
+                points: [
+                    'Structure sémantique et accessibilité',
+                    'Formulaires avancés et validation',
+                    'APIs HTML5 (Canvas, Storage, etc.)',
+                    'SEO et optimisation du balisage'
+                ]
+            },
+            'CSS3': {
+                category: 'Feuille de style',
+                description: 'CSS3 me permet de créer des designs modernes et responsifs. Je maîtrise les animations, les transitions, Flexbox et Grid.',
+                experience: 'Niveau avancé - 3 ans d\'expérience',
+                points: [
+                    'Flexbox et CSS Grid',
+                    'Animations et transitions avancées',
+                    'Design responsive et mobile-first',
+                    'Préprocesseurs (Sass/SCSS)'
+                ]
+            },
+            'JavaScript': {
+                category: 'Langage de programmation',
+                description: 'JavaScript est mon langage principal pour le développement web interactif. Je maîtrise ES6+, la manipulation du DOM et les concepts asynchrones.',
+                experience: 'Niveau avancé - 3 ans d\'expérience',
+                points: [
+                    'ES6+ et programmation moderne',
+                    'Manipulation du DOM et événements',
+                    'Promises, async/await',
+                    'APIs et fetch de données'
+                ]
+            },
+            'PHP': {
+                category: 'Langage back-end',
+                description: 'PHP me permet de développer des applications web côté serveur. J\'ai travaillé sur des projets incluant la gestion de bases de données et l\'authentification.',
+                experience: 'Niveau intermédiaire - 2 ans d\'expérience',
+                points: [
+                    'Développement d\'applications web',
+                    'Gestion de bases de données MySQL',
+                    'Systèmes d\'authentification',
+                    'APIs RESTful'
+                ]
+            },
+            'Python': {
+                category: 'Langage de programmation',
+                description: 'Python est un langage polyvalent que j\'utilise pour le développement web avec Django, le scripting et l\'analyse de données.',
+                experience: 'Niveau intermédiaire - 2 ans d\'expérience',
+                points: [
+                    'Développement web avec Django',
+                    'Scripting et automatisation',
+                    'Traitement de données',
+                    'Programmation orientée objet'
+                ]
+            },
+            'Java': {
+                category: 'Langage de programmation',
+                description: 'Java est le langage que j\'ai utilisé pour apprendre la programmation orientée objet et les concepts fondamentaux.',
+                experience: 'Niveau intermédiaire - 2 ans d\'expérience',
+                points: [
+                    'Programmation orientée objet',
+                    'Structures de données et algorithmes',
+                    'Interfaces graphiques (Swing/JavaFX)',
+                    'Gestion d\'exceptions'
+                ]
+            },
+            'C': {
+                category: 'Langage de programmation',
+                description: 'Le langage C m\'a permis de comprendre la gestion de la mémoire et les concepts bas niveau de la programmation.',
+                experience: 'Niveau débutant - 1 an d\'expérience',
+                points: [
+                    'Gestion de la mémoire (pointeurs)',
+                    'Structures de données',
+                    'Programmation système',
+                    'Algorithmes de base'
+                ]
+            },
+            'SQL': {
+                category: 'Langage de requête',
+                description: 'SQL me permet de gérer et interroger des bases de données relationnelles. Je maîtrise les requêtes complexes et l\'optimisation.',
+                experience: 'Niveau avancé - 3 ans d\'expérience',
+                points: [
+                    'Requêtes SELECT complexes',
+                    'Jointures et sous-requêtes',
+                    'Création et gestion de bases de données',
+                    'Optimisation de performances'
+                ]
+            },
+            'React': {
+                category: 'Framework JavaScript',
+                description: 'React est mon framework préféré pour créer des interfaces utilisateur modernes et interactives avec des composants réutilisables.',
+                experience: 'Niveau intermédiaire - 1 an d\'expérience',
+                points: [
+                    'Composants fonctionnels et hooks',
+                    'Gestion d\'état (useState, useEffect)',
+                    'Props et composition de composants',
+                    'Routing avec React Router'
+                ]
+            },
+            'Django': {
+                category: 'Framework Python',
+                description: 'Django est un framework puissant que j\'utilise pour développer des applications web complètes avec une architecture MVC.',
+                experience: 'Niveau débutant - 1 an d\'expérience',
+                points: [
+                    'Architecture MVT (Model-View-Template)',
+                    'ORM Django et modèles',
+                    'Système d\'authentification',
+                    'Admin Django et formulaires'
+                ]
+            }
+        };
+
+        // Fonction pour ouvrir le modal avec éclatement de bulle
+        function openSkillModal(skillName, iconPath) {
+            const modal = document.getElementById('skillModal');
+            const skillData = skillsData[skillName];
+            
+            if (!skillData) return;
+
+            // Remplir le contenu du modal
+            document.getElementById('modalIcon').src = iconPath;
+            document.getElementById('modalSkillName').textContent = skillName;
+            document.getElementById('modalSkillCategory').textContent = skillData.category;
+            
+            let bodyHTML = `
+                <p>${skillData.description}</p>
+                <span class="experience-level">${skillData.experience}</span>
+                <h3>Compétences acquises :</h3>
+                <ul>
+                    ${skillData.points.map(point => `<li>${point}</li>`).join('')}
+                </ul>
+            `;
+            
+            document.getElementById('modalBody').innerHTML = bodyHTML;
+            
+            // Afficher le modal
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Empêcher le scroll
+        }
+
+        // Fonction pour fermer le modal
+        function closeSkillModal() {
+            const modal = document.getElementById('skillModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = ''; // Réactiver le scroll
+        }
+
+        // Fermer le modal en cliquant à l'extérieur
+        document.getElementById('skillModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeSkillModal();
+            }
+        });
+
+        // Fermer le modal avec la touche Échap
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeSkillModal();
+            }
+        });
+
+        // Animation des bulles de compétences
         document.addEventListener('DOMContentLoaded', function() {
+            const bubbles = document.querySelectorAll('.skill-bubble');
+            
+            bubbles.forEach((bubble, index) => {
+                // Position aléatoire initiale
+                const randomDelay = Math.random() * 2;
+                const randomDuration = 3 + Math.random() * 2;
+                
+                bubble.style.animationDelay = `${randomDelay}s`;
+                bubble.style.animationDuration = `${randomDuration}s`;
+                
+                // Ajouter l'événement de clic pour ouvrir le modal
+                bubble.addEventListener('click', function() {
+                    const skillName = this.getAttribute('data-skill');
+                    const iconPath = this.getAttribute('data-icon');
+                    
+                    // Animation d'éclatement
+                    this.classList.add('bubble-clicked');
+                    
+                    // Ouvrir le modal après l'animation
+                    setTimeout(() => {
+                        openSkillModal(skillName, iconPath);
+                        this.classList.remove('bubble-clicked');
+                    }, 300);
+                });
+            });
+
+            // Carousel
             const track = document.querySelector('.carousel-track');
             const cards = Array.from(document.querySelectorAll('.bloc-card'));
             const nextBtn = document.querySelector('.next-btn');

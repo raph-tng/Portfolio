@@ -141,7 +141,7 @@
                 <span class="bubble-label">TypeScript</span>
             </div>
             <div class="skill-bubble" data-skill="Node" data-icon="./pictures/node.png">
-                <img src="./pictures/node.png" class="bubble-icon">
+                <img src="./pictures/node.svg" class="bubble-icon">
                 <span class="bubble-label">Node</span>
             </div>
             <div class="skill-bubble" data-skill="Vite" data-icon="./pictures/vite.png">
@@ -355,7 +355,6 @@
         </div>
     </section>
 
-    <!-- Modal Popup pour les compétences -->
     <div class="skill-modal" id="skillModal">
         <div class="modal-content">
             <button class="modal-close" onclick="closeSkillModal()">&times;</button>
@@ -374,17 +373,15 @@
     </div>
 
     <footer>
-        <p>&copy; Raphaël Tanguy 2025.</p>
+        <p>&copy; Raphaël Tanguy 2026.</p>
     </footer>
 
     <script>
-        // Menu burger - fermeture automatique au clic sur un lien
         document.querySelector('.burger').addEventListener('click', function() {
             document.querySelector('.nav-links').classList.toggle('active');
             document.querySelector('.burger').classList.toggle('toggle');
         });
 
-        // Fermer le menu burger quand on clique sur un lien
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', function() {
                 document.querySelector('.nav-links').classList.remove('active');
@@ -401,7 +398,6 @@
             });
         });
 
-        // Données des compétences
         const skillsData = {
             'HTML5': {
                 category: 'Langage de balisage',

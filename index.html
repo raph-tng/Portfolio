@@ -36,7 +36,7 @@
         <div class="icon-content">
             <h2>Bonjour, je m'appelle <span>Raphaël TANGUY</span></h2>
             <h3>Etudiant en 3e année de BUT Informatique</h3>
-            <p>Bienvenue sur mon portfolio. Je suis en recherche d'un stage en informatique à partir de mars 2026.</p>
+            <p>Bienvenue sur mon portfolio. Je suis en recherche d'un stage en informatique à partir de avril 2026.</p>
             <a href="./pictures/CV_Raphaël_Tanguy.pdf" class="btn" download="CV_Raphaël_Tanguy.pdf">Télécharger mon CV</a>
         </div>
         <div class="icon-image">
@@ -169,7 +169,7 @@
                     <h3>Eiffel Time</h3>
                     <p>Plateforme de gestion scolaire / ENT pour l'université.</p>
                     <div class="project-links">
-                        <a href="./src/eiffel_time.html" class="btn-small">Voir le projet</a>
+                        <a href="https://eiffel-time.jawedessahli.com/login" class="btn-small">Voir le projet</a>
                         <a href="https://github.com/Wedja10/Eiffel_Time" class="btn-small">Code source</a>
                     </div>
                 </div>
@@ -401,167 +401,138 @@
         const skillsData = {
             'HTML5': {
                 category: 'Langage de balisage',
-                description: 'HTML5 est le langage de base pour structurer le contenu web. Je maîtrise la création de structures sémantiques, l\'utilisation des balises modernes et l\'accessibilité.',
-                experience: 'Niveau avancé - 3 ans d\'expérience',
+                description: 'HTML5 est le langage de base pour structurer le contenu web.',
+                experience: '3 ans d\'expérience',
                 points: [
-                    'Structure sémantique et accessibilité',
-                    'Formulaires avancés et validation',
-                    'APIs HTML5 (Canvas, Storage, etc.)',
-                    'SEO et optimisation du balisage'
+                    'Tous les projets de développement web'
                 ]
             },
             'CSS3': {
                 category: 'Feuille de style',
-                description: 'CSS3 me permet de créer des designs modernes et responsifs. Je maîtrise les animations, les transitions, Flexbox et Grid.',
-                experience: 'Niveau avancé - 3 ans d\'expérience',
+                description: 'CSS3 me permet de créer des designs modernes et responsifs. ',
+                experience: '3 ans d\'expérience',
                 points: [
-                    'Flexbox et CSS Grid',
-                    'Animations et transitions avancées',
-                    'Design responsive et mobile-first',
-                    'Préprocesseurs (Sass/SCSS)'
+                    'Tous les projets de dévelppement web',
+                    'Pour Eiffel Time, nous avons utilisé TailwindCSS pour le web et NativeWind pour le mobile'
                 ]
             },
             'JavaScript': {
                 category: 'Langage de programmation',
-                description: 'JavaScript est mon langage principal pour le développement web interactif. Je maîtrise ES6+, la manipulation du DOM et les concepts asynchrones.',
-                experience: 'Niveau avancé - 3 ans d\'expérience',
+                description: 'JavaScript est mon langage principal pour le développement web interactif.',
+                experience: '3 ans d\'expérience',
                 points: [
-                    'ES6+ et programmation moderne',
-                    'Manipulation du DOM et événements',
-                    'Promises, async/await',
-                    'APIs et fetch de données'
+                    'Travia : plateforme de réservation de voyages intergalactiques avec JavaScript',
+                    'WikiExplorer : jeu vidéo en JavaScript pour la partie frontend de l\'application',
+                    'Goodies - Brother : développement d\'une application web en interne pour la gestion de goodies',
+                    'Portfolio personnel avec JavaScript pour les interactions et animations',
+                    'Eiffel Time : développement du frontend web de la plateforme de gestion scolaire en JavaScript'
                 ]
             },
             'PHP': {
                 category: 'Langage back-end',
                 description: 'PHP me permet de développer des applications web côté serveur. J\'ai travaillé sur des projets incluant la gestion de bases de données et l\'authentification.',
-                experience: 'Niveau intermédiaire - 2 ans d\'expérience',
+                experience: '3 ans d\'expérience',
                 points: [
-                    'Développement d\'applications web',
-                    'Gestion de bases de données MySQL',
-                    'Systèmes d\'authentification',
-                    'APIs RESTful'
+                    'Unesco : site web touristique sur Florence avec PHP pour la partie back-end',
+                    'B.I.F. : site de simulation de gestion de comptes bancaires avec PHP pour la partie back-end',
+                    'SNC\'Hess : plateforme de réservation de billets de train avec PHP pour la partie back-end',
+                    'Travia : plateforme de réservation de voyages intergalactiques avec PHP'
                 ]
             },
             'Python': {
                 category: 'Langage de programmation',
                 description: 'Python est un langage polyvalent que j\'utilise pour le développement web avec Django, le scripting et l\'analyse de données.',
-                experience: 'Niveau intermédiaire - 2 ans d\'expérience',
+                experience: '3 ans d\'expérience',
                 points: [
-                    'Développement web avec Django',
-                    'Scripting et automatisation',
-                    'Traitement de données',
-                    'Programmation orientée objet'
+                    'QIX : développement du jeu QIX en Python avec la bibliothèque fltk',
+                    'Eiffel Time : scripts de gestion et d\'automatisation pour un projet en React/Django'
                 ]
             },
             'Java': {
                 category: 'Langage de programmation',
                 description: 'Java est le langage que j\'ai utilisé pour apprendre la programmation orientée objet et les concepts fondamentaux.',
-                experience: 'Niveau intermédiaire - 2 ans d\'expérience',
+                experience: '3 ans d\'expérience',
                 points: [
-                    'Programmation orientée objet',
-                    'Structures de données et algorithmes',
-                    'Interfaces graphiques (Swing/JavaFX)',
-                    'Gestion d\'exceptions'
+                    'Codex Naturalis : développement d\'un jeu de cartes inspiré de Codex Naturalis à l\'aide d\'une bibliothèque graphique en Java fournie par l\'IUT',
+                    'Travia : utilisation de l\'API Java FFM pour intéragir avec des algorithmes de recherche codés en C'
                 ]
             },
             'C': {
                 category: 'Langage de programmation',
                 description: 'Le langage C m\'a permis de comprendre la gestion de la mémoire et les concepts bas niveau de la programmation.',
-                experience: 'Niveau débutant - 1 an d\'expérience',
+                experience: '3 ans d\'expérience',
                 points: [
-                    'Gestion de la mémoire (pointeurs)',
-                    'Structures de données',
-                    'Programmation système',
-                    'Algorithmes de base'
+                    'Travia : développement d\'algorithmes de recherche en C (Dijkstra, A*) pour une carte interactive',
+                    'Codeur et décodeur d\'images en C pour un projet de compression d\'images'
                 ]
             },
             'SQL': {
                 category: 'Langage de requête',
-                description: 'SQL me permet de gérer et interroger des bases de données relationnelles. Je maîtrise les requêtes complexes et l\'optimisation.',
-                experience: 'Niveau avancé - 3 ans d\'expérience',
+                description: 'SQL me permet de gérer et interroger des bases de données relationnelles.',
+                experience: '3 ans d\'expérience',
                 points: [
-                    'Requêtes SELECT complexes',
-                    'Jointures et sous-requêtes',
-                    'Création et gestion de bases de données',
-                    'Optimisation de performances'
+                    'Unesco : développement d\'un site web sur Florence, Italie en partenariat avec l\'Unesco avec les images, articles et textes stockés en SQL',
+                    'SNC\'Hess : développement d\'une plateforme de réservation de billets de train avec une base de données SQL',
+                    'B.I.F. : développement d\'un site de simulation de gestion de comptes bancaires avec une base de données SQL'
                 ]
             },
             'React': {
                 category: 'Framework JavaScript',
                 description: 'React est mon framework préféré pour créer des interfaces utilisateur modernes et interactives avec des composants réutilisables.',
-                experience: 'Niveau intermédiaire - 1 an d\'expérience',
+                experience: '2 ans d\'expérience',
                 points: [
-                    'Composants fonctionnels et hooks',
-                    'Gestion d\'état (useState, useEffect)',
-                    'Props et composition de composants',
-                    'Routing avec React Router'
+                    'WikiExplorer : développement d\'une application de jeu vidéo en React avec JavaScript pour la partie frontend de l\'application',
+                    'Eiffel Time : développement du frontend web de la plateforme de gestion scolaire en React et le mobile réalisé avec React Native'
                 ]
             },
             'Django': {
                 category: 'Framework Python',
                 description: 'Django est un framework puissant que j\'utilise pour développer des applications web complètes avec une architecture MVC.',
-                experience: 'Niveau débutant - 1 an d\'expérience',
+                experience: '1 an d\'expérience',
                 points: [
-                    'Architecture MVT (Model-View-Template)',
-                    'ORM Django et modèles',
-                    'Système d\'authentification',
-                    'Admin Django et formulaires'
+                    'Eiffel Time : développement d\'une plateforme de gestion scolaire avec Django pour l\'université'
                 ]
             },
             'Typescript': {
                 category: 'Langage de programmation',
-                description: 'TypeScript ajoute un typage statique à JavaScript, améliorant la qualité du code et la productivité. Je l\'utilise pour des projets robustes et maintenables.',
-                experience: 'Niveau intermédiaire - 1 an d\'expérience',
+                description: 'TypeScript ajoute un typage statique à JavaScript, améliorant la qualité du code et la productivité.',
+                experience: '2 ans d\'expérience',
                 points: [
-                    'Typage statique et interfaces',
-                    'Génériques et types avancés',
-                    'Integration avec React et Node',
-                    'Configuration et compilation'
+                    'WikiExplorer : développement d\'un jeu vidéo en React avec TypeScript pour la partie frontend de l\'application',
+                    'Eiffel Time : réalisiation du frontend  web de la plateforme de gestion scolaire en TypeScript'
                 ]
             },
             'Node': {
                 category: 'Environnement d\'exécution',
-                description: 'Node.js me permet de créer des applications serveur performantes en JavaScript. Je maîtrise la création d\'APIs RESTful et la gestion asynchrone.',
-                experience: 'Niveau intermédiaire - 1 an d\'expérience',
+                description: 'Node.js me permet de créer des applications serveur performantes en JavaScript.',
+                experience: '1 an d\'expérience',
                 points: [
-                    'Création d\'APIs RESTful',
-                    'Express.js et middleware',
-                    'Gestion asynchrone et événements',
-                    'Intégration de bases de données'
+                    'WikiExplorer : développement d\'une API RESTful avec Node.js pour une application React'
                 ]
             },
             'Vite': {
                 category: 'Build tool',
-                description: 'Vite est mon outil de build préféré pour les projets frontend modernes. Il offre un développement ultra-rapide et une excellente expérience développeur.',
-                experience: 'Niveau débutant - 6 mois d\'expérience',
+                description: 'Vite est mon outil de build préféré pour les projets frontend modernes.',
+                experience: '1 an d\'expérience',
                 points: [
-                    'Configuration de projets React/Vue',
-                    'Hot Module Replacement (HMR)',
-                    'Optimisation de build production',
-                    'Plugins et personnalisation'
+                    'WikiExplorer : utilisation de Vite pour le développement rapide d\'une application React'
                 ]
             },
             'MongoDB': {
                 category: 'Base de données NoSQL',
-                description: 'MongoDB est la base de données NoSQL que j\'utilise pour des applications nécessitant flexibilité et scalabilité. Je maîtrise Mongoose pour Node.js.',
-                experience: 'Niveau débutant - 1 an d\'expérience',
+                description: 'MongoDB est la base de données NoSQL que j\'utilise pour des applications nécessitant flexibilité et scalabilité. ',
+                experience: '2 ans d\'expérience',
                 points: [
-                    'Modélisation de documents',
-                    'Requêtes et agrégations',
-                    'Mongoose ODM',
-                    'Indexation et performance'
+                    'WikiExplorer : utilisation de MongoDB pour stocker les données de jeu et les profils utilisateurs dans une application React'
                 ]
             },
             'PostgreSQL': {
                 category: 'Base de données relationnelle',
                 description: 'PostgreSQL est ma base de données relationnelle de prédilection pour des projets nécessitant robustesse et fonctionnalités avancées.',
-                experience: 'Niveau intermédiaire - 1 an d\'expérience',
+                experience: '3 ans d\'expérience',
                 points: [
-                    'Requêtes SQL avancées',
-                    'Procédures stockées et triggers',
-                    'Optimisation et indexation',
-                    'Types de données avancés (JSON, arrays)'
+                    'Conferencio : simulation de plateforme de gestion de conférences avec PostgreSQL',
+                    'Eiffel Time : utilisation de PostgreSQL pour la gestion des données d\'une plateforme de gestion scolaire'
                 ]
             }
         };
@@ -581,7 +552,7 @@
             let bodyHTML = `
                 <p>${skillData.description}</p>
                 <span class="experience-level">${skillData.experience}</span>
-                <h3>Compétences acquises :</h3>
+                <h3>Projets où j'ai utilisé cette compétence :</h3>
                 <ul>
                     ${skillData.points.map(point => `<li>${point}</li>`).join('')}
                 </ul>

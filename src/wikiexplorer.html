@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travia - Raphaël Tanguy</title>
+    <title>WikiExplorer - Raphaël Tanguy</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -56,6 +56,10 @@
             padding: 15px 50px;
             max-width: var(--container-width);
             margin: 0 auto;
+        }
+
+        .logo img {
+            height: 50px;
         }
 
         .back-btn {
@@ -302,18 +306,19 @@
 
         .technologies {
             padding: 80px 2rem;
+            background-color: white;
         }
 
         .tech-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 30px;
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
         .tech-item {
-            background-color: white;
+            background-color: #f8f9fa;
             padding: 30px;
             border-radius: var(--border-radius);
             text-align: center;
@@ -336,11 +341,11 @@
             font-size: 1.1rem;
         }
 
-        .fa-html5 { color: #e34f26; }
-        .fa-css3-alt { color: #1572b6; }
+        .fa-react { color: #61dafb; }
         .fa-js { color: #f7df1e; }
-        .fa-php { color: #777bb4; }
-        .fa-database { color: #00758f; }
+        .fa-node { color: #339933; }
+        .fa-database { color: #13aa52; }
+        .fa-bolt { color: #646cff; }
 
         footer {
             background-color: var(--dark-color);
@@ -392,10 +397,10 @@
     </header>
 
     <section class="hero">
-        <h1>Travia</h1>
-        <p>Plateforme de réservation de voyages intergalactiques - Explorez l'univers comme jamais auparavant</p>
+        <h1>WikiExplorer</h1>
+        <p>Jeu vidéo de course sur Wikipedia en ligne</p>
         <div class="project-links">
-            <a href="https://github.com/RaphaelDAV/TRAVIA" class="btn" target="_blank">
+            <a href="https://github.com/LeZynf/wikiexplorer" class="btn" target="_blank">
                 <i class="fab fa-github"></i>
                 Code source
             </a>
@@ -410,32 +415,32 @@
         <div class="description">
             <h3>À propos du projet</h3>
             <p>
-                Travia est une plateforme innovante de réservation de voyages intergalactiques, inspirée par l'univers Star Wars et développée dans le cadre de mes études en BUT Informatique. Ce projet ambitieux combine design moderne et fonctionnalités complexes pour offrir une expérience utilisateur immersive.
+                WikiExplorer est un jeu vidéo développé en React et TypeScript. Le concept est simple mais addictif : naviguer de page Wikipedia en page Wikipedia pour atteindre une cible donnée en un minimum de clics.
             </p>
             <p>
-                L'objectif était de créer une application web complète permettant aux utilisateurs de rechercher, comparer et réserver des voyages vers différentes destinations spatiales. Le projet met en œuvre des concepts avancés de développement web, de gestion de bases de données et d'architecture logicielle.
+                Les joueurs doivent compléter des objectifs spécifiques tout en collectant des artéfacts qui peuvent leur servir à anéantir la concurrence ou bien se propulser en tête de la course. 
             </p>
 
             <div class="features">
                 <div class="feature-card">
-                    <i class="fas fa-search"></i>
-                    <h4>Recherche Avancée</h4>
-                    <p>Filtres multiples pour trouver le voyage idéal</p>
+                    <i class="fas fa-gamepad"></i>
+                    <h4>Artéfacts pièges</h4>
+                    <p>Mettez des obstacles à vos adversaires et utiliser les power-ups au bon moment pour gagner la course</p>
                 </div>
                 <div class="feature-card">
-                    <i class="fas fa-calendar-check"></i>
-                    <h4>Réservation Simple</h4>
-                    <p>Processus de réservation intuitif et sécurisé</p>
+                    <i class="fas fa-brain"></i>
+                    <h4>Logique et stratégie</h4>
+                    <p>Faites preuve d'astuce pour naviguer le plus efficacement possible et atteindre vos objectifs</p>
                 </div>
                 <div class="feature-card">
-                    <i class="fas fa-user-circle"></i>
-                    <h4>Espace Personnel</h4>
-                    <p>Gestion complète de vos réservations</p>
+                    <i class="fas fa-trophy"></i>
+                    <h4>Classement</h4>
+                    <p>Soyez le premier à compléter vos objectifs et dominez le lobby</p>
                 </div>
                 <div class="feature-card">
-                    <i class="fas fa-map"></i>
-                    <h4>Carte interactive</h4>
-                    <p>Contrôle sur les voyages et système de GPS</p>
+                    <i class="fas fa-users"></i>
+                    <h4>Multijoueur</h4>
+                    <p>Jouez entre amis ou dans des lobbys ouverts contre d'autres joueurs</p>
                 </div>
             </div>
         </div>
@@ -446,19 +451,16 @@
         <div class="carousel-container">
             <div class="carousel-track">
                 <div class="carousel-slide">
-                    <img src="../pictures/travia.png" alt="homepage">
+                    <img src="../pictures/wiki1.png" alt="homepage">
                 </div>
                 <div class="carousel-slide">
-                    <img src="../pictures/travia2.png" alt="trip">
+                    <img src="../pictures/wiki2.png" alt="partycode">
                 </div>
                 <div class="carousel-slide">
-                    <img src="../pictures/travia3.png" alt="cart">
+                    <img src="../pictures/wiki3.png" alt="lobby">
                 </div>
                 <div class="carousel-slide">
-                    <img src="../pictures/travia4.png" alt="planets">
-                </div>
-                <div class="carousel-slide">
-                    <img src="../pictures/travia5.png" alt="ships">
+                    <img src="../pictures/wiki4.png" alt="gameplay">
                 </div>
             </div>
             <button class="carousel-nav carousel-prev">
@@ -475,30 +477,30 @@
         <h2 class="section-title">Technologies Utilisées</h2>
         <div class="tech-grid">
             <div class="tech-item">
-                <i class="fab fa-html5"></i>
-                <h4>HTML5</h4>
-            </div>
-            <div class="tech-item">
-                <i class="fab fa-css3-alt"></i>
-                <h4>CSS3</h4>
+                <i class="fab fa-react"></i>
+                <h4>React</h4>
             </div>
             <div class="tech-item">
                 <i class="fab fa-js"></i>
-                <h4>JavaScript</h4>
+                <h4>TypeScript</h4>
             </div>
             <div class="tech-item">
-                <i class="fab fa-php"></i>
-                <h4>PHP</h4>
+                <i class="fab fa-node"></i>
+                <h4>Node.js</h4>
             </div>
             <div class="tech-item">
                 <i class="fas fa-database"></i>
-                <h4>MySQL</h4>
+                <h4>MongoDB</h4>
+            </div>
+            <div class="tech-item">
+                <i class="fas fa-bolt"></i>
+                <h4>Vite</h4>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; Raphaël Tanguy 2025.</p>
+        <p>&copy; Raphaël Tanguy 2026.</p>
     </footer>
 
     <script>

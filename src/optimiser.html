@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloc 2 - Optimiser | Raphaël Tanguy</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="../pictures/heading.png">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background-color: #f5f7fa;
+        }
+
+        .bloc-header {
+            background: linear-gradient(135deg, #f59942, var(--secondary-color));
+            padding: 120px 0 60px;
+            text-align: center;
+            color: white;
+            margin-bottom: 0;
+            width: 100%;
+        }
+
+        .bloc-title {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .bloc-description {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.3rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .container {
+            width: 100%;
+            max-width: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .content-section {
+            width: 100%;
+            padding: 80px 0;
+            margin: 0;
+            position: relative;
+        }
+
+        .content-section:nth-child(even) {
+            background-color: white;
+        }
+
+        .content-section:nth-child(odd) {
+            background-color: #f7f9fc;
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .content-title {
+            font-size: 2.2rem;
+            color: #f59942;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+            position: relative;
+            font-weight: 600;
+        }
+
+        .content-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .projects-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-bottom: 20px;
+        }
+
+        .project-card {
+            display: flex;
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-image {
+            flex: 0 0 30%;
+            min-width: 200px;
+        }
+
+        .project-placeholder {
+            height: 100%;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(120deg, var(--secondary-color), #f59942);
+            color: white;
+            font-size: 3rem;
+        }
+
+        .project-info {
+            flex: 1;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #f59942;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn-small {
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            background-color: #f59942;
+            color: white;
+            text-decoration: none;
+        }
+
+        .btn-small:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background-color: var(--secondary-color);
+        }
+
+        .evaluation-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .evaluation-item {
+            flex: 1 1 calc(33.333% - 30px);
+            min-width: 250px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .evaluation-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .evaluation-item h4 {
+            margin-bottom: 15px;
+            color: #f59942;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .evaluation-item p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .skill-level {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .skill-level-text {
+            font-weight: 700;
+            margin-right: 15px;
+            width: 120px;
+            color: #333;
+        }
+
+        .skill-bar {
+            flex-grow: 1;
+            height: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            border-radius: 5px;
+            background: linear-gradient(90deg, #f59942, var(--secondary-color));
+            transition: width 1s ease-in-out;
+        }
+
+        .back-btn-section {
+            width: 100%;
+            text-align: center;
+            padding: 60px 0;
+            background-color: white;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 40px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background-color: #f59942;
+            color: white;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            background-color: var(--secondary-color);
+        }
+
+        .back-btn i {
+            margin-right: 10px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animated {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .content-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-radius: 3px;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .section-inner {
+                padding: 0 30px;
+            }
+            
+            .evaluation-item {
+                flex: 1 1 calc(50% - 30px);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .bloc-header {
+                padding: 80px 0 40px;
+            }
+            
+            .bloc-title {
+                font-size: 2.2rem;
+            }
+            
+            .bloc-description {
+                font-size: 1.1rem;
+            }
+            
+            .content-section {
+                padding: 50px 0;
+            }
+            
+            .section-inner {
+                padding: 0 20px;
+            }
+            
+            .project-card {
+                flex-direction: column;
+            }
+            
+            .project-image {
+                flex: none;
+            }
+            
+            .project-placeholder {
+                height: 150px;
+            }
+            
+            .evaluation-item {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="https://see.fontimg.com/api/rf5/dE0g/NmU5ZTRmNmJkZGFkNDMzNjg3YWFmMjk2NjUzMGY4YTEudHRm/UmFwaGHDq2w/beautiful-people-personal-use.png?r=fs&h=65&w=1000&fg=000000&bg=FFFFFF&tb=1&s=65" alt="logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html#apropos">À propos</a></li>
+                <li><a href="../index.html#parcours">Parcours</a></li>
+                <li><a href="../index.html#competences">Compétences</a></li>
+                <li><a href="../index.html#projets">Projets</a></li>
+                <li><a href="../index.html#blocs">Blocs</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="bloc-header">
+        <div class="section-inner">
+            <h1 class="bloc-title">Bloc 2 - Optimiser</h1>
+            <p class="bloc-description">Sélectionner les algorithmes adéquats pour répondre à un problème donné</p>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <div class="section-inner">
+            <h2 class="content-title">Présentation du bloc</h2>
+            <p>Proposer des applications informatiques optimisées en fonction de critères spécifiques : temps d'exécution, précision, consommation de ressources</p>
+            <ul style="margin-top: 20px; margin-left: 20px;">
+                <li>AC32.01 | Anticiper les résultats de diverses métriques (temps d’exécution, occupation mémoire, montée en charge...)</li>
+                <li>AC32.02 | Profiler, analyser et justifier le comportement d’un code existant</li>
+                <li>AC32.03 | Choisir et utiliser des bibliothèques et méthodes dédiées au domaine d'application (imagerie, immersion, intelligence artificielle, jeux vidéos, parallélisme, calcul formel...)</li>
+            </ul>
+            <p style="margin-top: 20px;">Ce bloc forme le socle des compétences d'amélioration continue, permettant d'optimiser les applications en termes de performance, de sécurité et d'efficacité.</p>  
+            <p>Il développe la capacité à identifier les problèmes et les analyser, à refactoriser le code existant et à implémenter des solutions algorithmiques avancées, pour créer des applications robustes capables de gérer efficacement d'importants volumes de données.</p>      
+        </div>
+    </div>
+
+    <div class="content-section">
+        <div class="section-inner">
+            <h2 class="content-title">Projets associés</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-code"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Algorithmes de graphe</h3>
+                        <p>Implémentation d'algorithmes de tri et de graphes en lien avec une base de données.</p>
+                        <li>Optimisation d'algorithmes de graphe</li>
+                        <li>Réduction de la complexité</li>
+                        <li>Représentation de structures de données</li>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image travia-bg">
+                    </div>
+                    <div class="project-info">
+                        <h3>Travia</h3>
+                        <p>Plateforme de réservation de voyages intergalactiques développée en équipe.</p>
+                        <li>Graphe de planètes</li>
+                        <li>Optimisation des requêtes SQL</li>
+                        <li>Algorithme de recherche de planètes</li>
+                        <div class="project-links">
+                            <a href="#" class="btn-small">Voir le projet</a>
+                            <a href="https://github.com/RaphaelDAV/TRAVIA" class="btn-small">Code source</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image wikiexplorer-bg">
+                    </div>
+                    <div class="project-info">
+                        <h3>WikiExplorer</h3>
+                        <p>Jeu vidéo en ligne consistant à se déplacer d'article en article sur Wikipedia pour compléter des objectifs et gagner la course.</p>
+                        <li>Stocké en cloud</li>
+                        <li>Migration Lift and Shift</li>
+                        <li>Optimisation du code et des performances en ligne</li>
+                        <div class="project-links">
+                            <a href="#" class="btn-small">Voir le projet</a>
+                            <a href="https://github.com/LeZynf/wikiexplorer" class="btn-small">Code source</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <div class="section-inner">
+            <h2 class="content-title">Auto-évaluation</h2>
+            <p>Après avoir travaillé sur divers projets nécessitant des optimisations algorithmiques, voici mon auto-évaluation sur les différentes compétences liées au bloc "Optimiser" :</p>
+            
+            <div class="evaluation-grid">
+                <div class="evaluation-item">
+                    <h4>Structures de données</h4>
+                    <p>Maîtrise des structures de données fondamentales et avancées</p>
+                    <div class="skill-level">
+                        <span class="skill-level-text">Intermédiaire</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="evaluation-item">
+                    <h4>Algorithmes de tri</h4>
+                    <p>Compréhension et implémentation des algorithmes de tri</p>
+                    <div class="skill-level">
+                        <span class="skill-level-text">A améliorer</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 50%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="evaluation-item">
+                    <h4>Algorithmes de graphes</h4>
+                    <p>Maîtrise des algorithmes de parcours et recherche de chemin</p>
+                    <div class="skill-level">
+                        <span class="skill-level-text">Intermédiaire</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 65%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="evaluation-item">
+                    <h4>Complexité algorithmique</h4>
+                    <p>Analyse de la complexité temporelle et spatiale</p>
+                    <div class="skill-level">
+                        <span class="skill-level-text">A améliorer</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 45%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="evaluation-item">
+                    <h4>Programmation dynamique</h4>
+                    <p>Résolution de problèmes par programmation dynamique</p>
+                    <div class="skill-level">
+                        <span class="skill-level-text">Intermédiaire</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="evaluation-item">
+                    <h4>Optimisation de code</h4>
+                    <p>Capacité à optimiser le code existant pour de meilleures performances</p>
+                    <div class="skill-level">
+                        <span class="skill-level-text">Intermédiaire</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <p style="margin-top: 30px;">Axes d'amélioration :</p>
+            <br>
+            <li style="margin-left: 20px;">Approfondir la compréhension des algorithmes de tri et de recherche</li>
+            <li style="margin-left: 20px;">Améliorer mes compétences d'optimisation de code</li>
+            <li style="margin-left: 20px;">Développer mon analyse de la complexité des programmes</li>
+        </div>
+    </div>
+    
+    <section class="back-btn-section">
+        <a href="../index.html#blocs" class="btn back-btn"><i class="fas fa-arrow-left"></i> Retour aux blocs</a>
+        <a href="./collaborer.html" class="btn back-btn"><i class="fas fa-arrow-right"></i> Bloc suivant</a>
+    </section>
+
+    <footer>
+        <p>&copy; Raphaël Tanguy 2026.</p>
+    </footer

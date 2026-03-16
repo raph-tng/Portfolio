@@ -11,12 +11,13 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: sans-serif;
-            background-color: #f5f7fa;
+            font-family: 'Segoe UI', 'Roboto', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
         }
 
         .bloc-header {
-            background: linear-gradient(135deg, #f59942, var(--secondary-color));
+            background: var(--gradient-secondary);
             padding: 120px 0 60px;
             text-align: center;
             color: white;
@@ -51,14 +52,12 @@
             padding: 80px 0;
             margin: 0;
             position: relative;
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
         }
 
         .content-section:nth-child(even) {
-            background-color: white;
-        }
-
-        .content-section:nth-child(odd) {
-            background-color: #f7f9fc;
+            background-color: var(--bg-primary);
         }
 
         .section-inner {
@@ -69,7 +68,7 @@
 
         .content-title {
             font-size: 2.2rem;
-            color: #f59942;
+            color: var(--accent-color);
             margin-bottom: 40px;
             padding-bottom: 15px;
             position: relative;
@@ -83,150 +82,15 @@
             left: 0;
             width: 70px;
             height: 4px;
-            background-color: var(--accent-color);
+            background: var(--gradient-secondary);
             border-radius: 2px;
-        }
-
-        .projects-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-            margin-bottom: 20px;
-        }
-
-        .project-card {
-            display: flex;
-            background-color: white;
-            border-radius: 15px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .project-image {
-            flex: 0 0 30%;
-            min-width: 200px;
-        }
-
-        .project-placeholder {
-            height: 100%;
-            min-height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(120deg, var(--secondary-color), #f59942);
-            color: white;
-            font-size: 3rem;
-        }
-
-        .project-info {
-            flex: 1;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .project-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: #f59942;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .btn-small {
-            padding: 10px 20px;
-            border-radius: 30px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            background-color: #f59942;
-            color: white;
-            text-decoration: none;
-        }
-
-        .btn-small:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            background-color: var(--secondary-color);
-        }
-
-        .evaluation-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .evaluation-item {
-            flex: 1 1 calc(33.333% - 30px);
-            min-width: 250px;
-            background-color: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .evaluation-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .evaluation-item h4 {
-            margin-bottom: 15px;
-            color: #f59942;
-            font-size: 1.3rem;
-            font-weight: 600;
-        }
-
-        .evaluation-item p {
-            margin-bottom: 20px;
-            color: #555;
-        }
-
-        .skill-level {
-            display: flex;
-            align-items: center;
-            margin-top: 15px;
-        }
-
-        .skill-level-text {
-            font-weight: 700;
-            margin-right: 15px;
-            width: 120px;
-            color: #333;
-        }
-
-        .skill-bar {
-            flex-grow: 1;
-            height: 10px;
-            background-color: #f0f0f0;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .skill-progress {
-            height: 100%;
-            border-radius: 5px;
-            background: linear-gradient(90deg, #f59942, var(--secondary-color));
-            transition: width 1s ease-in-out;
         }
 
         .back-btn-section {
             width: 100%;
             text-align: center;
             padding: 60px 0;
-            background-color: white;
+            background-color: var(--bg-primary);
         }
 
         .back-btn {
@@ -235,57 +99,20 @@
             border-radius: 40px;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            background-color: #f59942;
+            box-shadow: var(--box-shadow-sm);
+            background: var(--gradient-secondary);
             color: white;
             text-decoration: none;
         }
 
         .back-btn:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-            background-color: var(--secondary-color);
+            box-shadow: var(--box-shadow);
+            filter: brightness(1.1);
         }
 
         .back-btn i {
             margin-right: 10px;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animated {
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        .content-section::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background-color: rgba(0, 0, 0, 0.05);
-            border-radius: 3px;
-        }
-
-        @media screen and (max-width: 1024px) {
-            .section-inner {
-                padding: 0 30px;
-            }
-            
-            .evaluation-item {
-                flex: 1 1 calc(50% - 30px);
-            }
         }
 
         @media screen and (max-width: 768px) {
@@ -297,32 +124,8 @@
                 font-size: 2.2rem;
             }
             
-            .bloc-description {
-                font-size: 1.1rem;
-            }
-            
-            .content-section {
-                padding: 50px 0;
-            }
-            
             .section-inner {
                 padding: 0 20px;
-            }
-            
-            .project-card {
-                flex-direction: column;
-            }
-            
-            .project-image {
-                flex: none;
-            }
-            
-            .project-placeholder {
-                height: 150px;
-            }
-            
-            .evaluation-item {
-                flex: 1 1 100%;
             }
         }
     </style>
@@ -331,9 +134,7 @@
     <header>
         <nav>
             <div class="logo">
-                <a href="../index.html">
-                    <img src="https://see.fontimg.com/api/rf5/dE0g/NmU5ZTRmNmJkZGFkNDMzNjg3YWFmMjk2NjUzMGY4YTEudHRm/UmFwaGHDq2w/beautiful-people-personal-use.png?r=fs&h=65&w=1000&fg=000000&bg=FFFFFF&tb=1&s=65" alt="logo">
-                </a>
+                <img src="../pictures/logo.png" alt="logo">
             </div>
             <ul class="nav-links">
                 <li><a href="../index.html#apropos">À propos</a></li>
@@ -343,6 +144,11 @@
                 <li><a href="../index.html#blocs">Blocs</a></li>
                 <li><a href="../index.html#contact">Contact</a></li>
             </ul>
+            <div class="nav-right">
+                <button class="theme-toggle" id="theme-toggle" title="Basculer le mode sombre">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
             <div class="burger">
                 <div class="line1"></div>
                 <div class="line2"></div>
@@ -512,4 +318,8 @@
 
     <footer>
         <p>&copy; Raphaël Tanguy 2026.</p>
-    </footer
+    </footer>
+
+    <script src="../script/script.js"></script>
+</body>
+</html>

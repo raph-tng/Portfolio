@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travia - Raphaël Tanguy</title>
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="../pictures/heading.png">
     <style>
         :root {
-            --primary-color: #6200ea;
-            --secondary-color: #b388ff;
-            --accent-color: #ffab00;
+            --container-width: 1200px;
             --text-color: #212121;
             --light-color: #fafafa;
             --dark-color: #121212;
@@ -34,8 +34,8 @@
         body {
             font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
             line-height: 1.7;
-            color: var(--text-color);
-            background-color: var(--light-color);
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
         }
 
         header {
@@ -78,7 +78,7 @@
 
         .hero {
             padding: 120px 2rem 80px;
-            background: linear-gradient(135deg, #6200ea 0%, #b388ff 100%);
+            background: var(--gradient-primary);
             color: white;
             text-align: center;
         }
@@ -110,16 +110,16 @@
             background-color: white;
             color: var(--primary-color);
             padding: 12px 24px;
-            border-radius: var(--border-radius);
+            border-radius: 8px;
             text-decoration: none;
-            transition: var(--transition);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             font-weight: 600;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: var(--box-shadow-sm);
         }
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: var(--box-shadow);
         }
 
         .btn-outline {
@@ -157,14 +157,14 @@
             transform: translateX(-50%);
             width: 70px;
             height: 3px;
-            background-color: var(--accent-color);
+            background: var(--gradient-secondary);
         }
 
         .description {
-            background-color: white;
+            background-color: var(--bg-secondary);
             padding: 40px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
+            border-radius: 12px;
+            box-shadow: var(--box-shadow-sm);
             margin-bottom: 60px;
         }
 
@@ -177,7 +177,7 @@
         .description p {
             font-size: 1.1rem;
             line-height: 1.8;
-            color: var(--gray-color);
+            color: var(--text-secondary);
             margin-bottom: 15px;
         }
 
@@ -189,11 +189,12 @@
         }
 
         .feature-card {
-            background: linear-gradient(135deg, #f5f7fa 0%, #e8eaed 100%);
+            background: var(--bg-primary);
             padding: 30px;
-            border-radius: var(--border-radius);
+            border-radius: 12px;
             text-align: center;
-            transition: var(--transition);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: 1px solid var(--border-color);
         }
 
         .feature-card:hover {
@@ -210,16 +211,16 @@
         .feature-card h4 {
             margin-bottom: 10px;
             font-size: 1.2rem;
-            color: var(--text-color);
+            color: var(--text-primary);
         }
 
         .feature-card p {
-            color: var(--gray-color);
+            color: var(--text-secondary);
             font-size: 0.95rem;
         }
 
         .carousel-section {
-            background-color: white;
+            background-color: var(--bg-secondary);
             padding: 80px 2rem;
         }
 
@@ -228,13 +229,13 @@
             max-width: 900px;
             margin: 0 auto;
             overflow: hidden;
-            border-radius: var(--border-radius);
+            border-radius: 12px;
             box-shadow: var(--box-shadow);
         }
 
         .carousel-track {
             display: flex;
-            transition: transform 0.5s ease-in-out;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         .carousel-slide {
@@ -262,13 +263,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: var(--transition);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             z-index: 10;
         }
 
         .carousel-nav:hover {
             background-color: var(--primary-color);
             color: white;
+            transform: translateY(-50%) scale(1.1);
+            transform: translateY(-50%) scale(1.1);
         }
 
         .carousel-prev {
@@ -290,9 +293,9 @@
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background-color: #ddd;
+            background-color: var(--border-color);
             cursor: pointer;
-            transition: var(--transition);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         .carousel-dot.active {
@@ -343,11 +346,12 @@
         .fa-database { color: #00758f; }
 
         footer {
-            background-color: var(--dark-color);
-            color: white;
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
             text-align: center;
             padding: 30px 0;
             font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
         }
 
         @media screen and (max-width: 768px) {
@@ -382,12 +386,26 @@
     <header>
         <nav>
             <div class="logo">
-                <img src="https://see.fontimg.com/api/rf5/dE0g/NmU5ZTRmNmJkZGFkNDMzNjg3YWFmMjk2NjUzMGY4YTEudHRm/UmFwaGHDq2w/beautiful-people-personal-use.png?r=fs&h=65&w=1000&fg=000000&bg=FFFFFF&tb=1&s=65" alt="logo">
+                <img src="../pictures/logo.png" alt="logo">
             </div>
-            <a href="../index.html#projets" class="back-btn">
-                <i class="fa-solid fa-house"></i>
-                Retour
-            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html#apropos">À propos</a></li>
+                <li><a href="../index.html#parcours">Parcours</a></li>
+                <li><a href="../index.html#competences">Compétences</a></li>
+                <li><a href="../index.html#projets">Projets</a></li>
+                <li><a href="../index.html#blocs">Blocs</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <div class="nav-right">
+                <button class="theme-toggle" id="theme-toggle" title="Basculer le mode sombre">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
         </nav>
     </header>
 

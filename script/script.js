@@ -93,3 +93,90 @@ function setupCanvas() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 }
+
+// ==================== DNA HELIX ANIMATION ====================
+
+const dnaCanvas = document.getElementById('dna-helix-canvas');
+const dnaCtx = dnaCanvas.getContext('2d');
+
+function setupDnaCanvas() {
+    dnaCanvas.width = window.innerWidth;
+    const timelineSection = document.querySelector('.timeline');
+    if (timelineSection) {
+        dnaCanvas.height = timelineSection.offsetHeight;
+    }
+}
+
+function drawDnaHelix() {
+    const scrollPercentage = calculateTimelineScrollProgress() * 1.1; // Accélération de l'hélice
+    dnaCtx.clearRect(0, 0, dnaCanvas.width, dnaCanvas.height);
+    
+    const centerX = dnaCanvas.width / 2;
+    const amplitude = 60;
+    const frequency = 0.02;
+    const maxHeight = dnaCanvas.height * Math.min(scrollPercentage, 1);
+    
+    // Draw the two strands of the helix
+    const strand1Color = '#6200ea';
+    const strand2Color = '#ffab00';
+    
+    dnaCtx.lineWidth = 3;
+    dnaCtx.lineCap = 'round';
+    
+    // Strand 1
+    dnaCtx.strokeStyle = strand1Color;
+    dnaCtx.beginPath();
+    for (let y = 0; y < maxHeight; y += 2) {
+        const x = centerX + Math.sin(y * frequency) * amplitude;
+        if (y === 0) {
+            dnaCtx.moveTo(x, y);
+        } else {
+            dnaCtx.lineTo(x, y);
+        }
+    }
+    dnaCtx.stroke();
+    
+    // Strand 2
+    dnaCtx.strokeStyle = strand2Color;
+    dnaCtx.beginPath();
+    for (let y = 0; y < maxHeight; y += 2) {
+        const x = centerX - Math.sin(y * frequency) * amplitude;
+        if (y === 0) {
+            dnaCtx.moveTo(x, y);
+        } else {
+            dnaCtx.lineTo(x, y);
+        }
+    }
+    dnaCtx.stroke();
+    
+    // Add glow effect
+    dnaCtx.shadowColor = 'rgba(98, 0, 234, 0.5)';
+    dnaCtx.shadowBlur = 10;
+    dnaCtx.shadowOffsetX = 0;
+    dnaCtx.shadowOffsetY = 0;
+}
+
+function calculateTimelineScrollProgress() {
+    const timelineSection = document.querySelector('.timeline');
+    if (!timelineSection) return 0;
+    
+    const rect = timelineSection.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+    
+    // Calculate progress: 0 when timeline enters viewport, 1 when it exits
+    let progress = (windowHeight - rect.top) / (windowHeight + rect.height);
+    progress = Math.max(0, Math.min(1, progress));
+    
+    return progress;
+}
+
+function animateDna() {
+    drawDnaHelix();
+    requestAnimationFrame(animateDna);
+}
+
+// Initialize DNA canvas
+setupDnaCanvas();
+animateDna();
+window.addEventListener('resize', setupDnaCanvas);
+window.addEventListener('scroll', drawDnaHelix);

@@ -15,8 +15,8 @@
     --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     --container-width: 1200px;
-    --gradient-primary: linear-gradient(135deg, #4a00b8 0%, #6200ea 35%, #b388ff 100%);
-    --gradient-secondary: linear-gradient(135deg, #ff8f00 0%, #ffab00 50%, #ffd54f 100%);
+    --gradient-primary: linear-gradient(135deg, #2a0052 0%, #4a00b8 20%, #6200ea 45%, #8e24ff 70%, #b388ff 100%);
+    --gradient-secondary: linear-gradient(135deg, #cc6600 0%, #ff8f00 25%, #ffab00 50%, #ffc107 75%, #ffd54f 100%);
 }
 
 /* Reset et styles de base */
@@ -70,7 +70,7 @@ a:hover {
 
 .btn {
     display: inline-block;
-    background: linear-gradient(135deg, #4a00b8 0%, #6200ea 50%, #8e24ff 100%);
+    background: linear-gradient(135deg, #3a0080 0%, #4a00b8 25%, #6200ea 50%, #8e24ff 75%, #a855f7 100%);
     color: white;
     padding: 12px 24px;
     border-radius: var(--border-radius);
@@ -121,7 +121,7 @@ a:hover {
     position: relative;
     padding-bottom: 15px;
     font-weight: 800;
-    background: linear-gradient(135deg, #4a00b8 0%, #6200ea 50%, #b388ff 100%);
+    background: linear-gradient(135deg, #2a0052 0%, #4a00b8 25%, #6200ea 50%, #8e24ff 75%, #b388ff 100%);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
@@ -135,7 +135,7 @@ a:hover {
     transform: translateX(-50%);
     width: 70px;
     height: 3px;
-    background: linear-gradient(90deg, #ff8f00 0%, #ffab00 50%, #ffd54f 100%);
+    background: linear-gradient(90deg, #cc6600 0%, #ff8f00 25%, #ffab00 50%, #ffc107 75%, #ffd54f 100%);
 }
 
 section {
@@ -222,7 +222,7 @@ nav {
     font-weight: 800;
     margin-bottom: 20px;
     line-height: 1.2;
-    background: linear-gradient(135deg, #4a00b8 0%, #6200ea 50%, #b388ff 100%);
+    background: linear-gradient(135deg, #2a0052 0%, #4a00b8 25%, #6200ea 50%, #8e24ff 75%, #b388ff 100%);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
@@ -290,6 +290,18 @@ nav {
     padding: 2rem 0;
 }
 
+#dna-helix-canvas {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 100%;
+    max-width: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
 .timeline-container::before {
     content: '';
     position: absolute;
@@ -298,8 +310,9 @@ nav {
     transform: translateX(-50%);
     width: 4px;
     height: 100%;
-    background: linear-gradient(to bottom, #4a00b8 0%, #6200ea 50%, #b388ff 100%);
+    background: linear-gradient(to bottom, #2a0052 0%, #4a00b8 25%, #6200ea 50%, #8e24ff 75%, #b388ff 100%);
     border-radius: 2px;
+    z-index: 1;
 }
 
 .timeline-block {
@@ -308,6 +321,7 @@ nav {
     justify-content: flex-start;
     margin-bottom: 3rem;
     position: relative;
+    z-index: 10;
 }
 
 .timeline-block:nth-child(even) {
@@ -372,7 +386,7 @@ nav {
     margin-bottom: 1rem;
     font-size: 0.9rem;
     color: white;
-    background: linear-gradient(135deg, #4a00b8 0%, #6200ea 50%, #8e24ff 100%);
+    background: linear-gradient(135deg, #3a0080 0%, #4a00b8 25%, #6200ea 50%, #8e24ff 75%, #a855f7 100%);
 }
 
 .timeline-content h3 {
@@ -445,7 +459,7 @@ nav {
     right: -3px;
     bottom: -3px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #4a00b8 0%, #6200ea 40%, #8e24ff 70%, #b388ff 100%);
+    background: linear-gradient(135deg, #2a0052 0%, #4a00b8 20%, #6200ea 40%, #8e24ff 65%, #a855f7 85%, #b388ff 100%);
     z-index: -1;
     opacity: 0;
     transition: opacity 0.4s ease;
@@ -489,7 +503,7 @@ nav {
 .skill-bubble:hover {
     transform: scale(1.15) translateY(-10px);
     box-shadow: 0 15px 40px rgba(98, 0, 234, 0.3);
-    background: linear-gradient(135deg, #4a00b8 0%, #6200ea 50%, #8e24ff 100%);
+    background: linear-gradient(135deg, #2a0052 0%, #4a00b8 25%, #6200ea 50%, #8e24ff 75%, #b388ff 100%);
 }
 
 .skill-bubble:hover .bubble-icon {
@@ -581,7 +595,7 @@ nav {
     height: 80px;
     margin-right: 20px;
     padding: 15px;
-    background: linear-gradient(135deg, #4a00b8 0%, #6200ea 50%, #b388ff 100%);
+    background: linear-gradient(135deg, #2a0052 0%, #4a00b8 25%, #6200ea 50%, #8e24ff 75%, #b388ff 100%);
     border-radius: 20px;
     display: flex;
     align-items: center;
@@ -673,7 +687,7 @@ nav {
     display: inline-block;
     margin-top: 15px;
     padding: 8px 20px;
-    background: linear-gradient(135deg, #4a00b8 0%, #6200ea 50%, #8e24ff 100%);
+    background: linear-gradient(135deg, #3a0080 0%, #4a00b8 25%, #6200ea 50%, #8e24ff 75%, #a855f7 100%);
     color: white;
     border-radius: 20px;
     font-weight: 600;
@@ -724,7 +738,7 @@ nav {
 
 .project-image {
     height: 200px;
-    background: linear-gradient(135deg, #4a00b8 0%, #6200ea 50%, #b388ff 100%);
+    background: linear-gradient(135deg, #2a0052 0%, #4a00b8 25%, #6200ea 50%, #8e24ff 75%, #b388ff 100%);
     overflow: hidden;
     position: relative;
 }
@@ -793,7 +807,7 @@ nav {
 
 .bloc-card:hover {
     transform: translateY(-10px) scale(1.03);
-    background: linear-gradient(135deg, #4a00b8 0%, #6200ea 50%, #8e24ff 100%);
+    background: linear-gradient(135deg, #2a0052 0%, #4a00b8 25%, #6200ea 50%, #8e24ff 75%, #b388ff 100%);
     color: white;
     box-shadow: 0 15px 30px rgba(98, 0, 234, 0.3);
 }

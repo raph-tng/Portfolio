@@ -17,7 +17,7 @@
         }
 
         .bloc-header {
-            background: var(--gradient-secondary);
+            background: linear-gradient(135deg, #f59942 0%, #a78bfa 100%);
             padding: 120px 0 60px;
             text-align: center;
             color: white;
@@ -68,7 +68,7 @@
 
         .content-title {
             font-size: 2.2rem;
-            color: var(--accent-color);
+            color: #f59942;
             margin-bottom: 40px;
             padding-bottom: 15px;
             position: relative;
@@ -82,8 +82,149 @@
             left: 0;
             width: 70px;
             height: 4px;
-            background: var(--gradient-secondary);
+            background: linear-gradient(135deg, #f59942 0%, #a78bfa 100%);
             border-radius: 2px;
+        }
+
+        .projects-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-bottom: 20px;
+        }
+
+        .project-card {
+            display: flex;
+            background-color: var(--bg-secondary);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: var(--box-shadow-sm);
+            border: 1px solid var(--border-color);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .project-image {
+            flex: 0 0 30%;
+            min-width: 200px;
+        }
+
+        .project-placeholder {
+            height: 100%;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-primary);
+            color: white;
+            font-size: 3rem;
+        }
+
+        .project-info {
+            flex: 1;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .project-info p {
+            color: var(--text-secondary);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn-small {
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            background: var(--gradient-primary);
+            color: white;
+            text-decoration: none;
+        }
+
+        .btn-small:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--box-shadow);
+            filter: brightness(1.1);
+        }
+
+        .evaluation-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .evaluation-item {
+            flex: 1 1 calc(33.333% - 30px);
+            min-width: 250px;
+            background-color: var(--bg-secondary);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--box-shadow-sm);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .evaluation-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .evaluation-item h4 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .evaluation-item p {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+
+        .skill-level {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .skill-level-text {
+            font-weight: 700;
+            margin-right: 15px;
+            width: 120px;
+            color: var(--text-primary);
+        }
+
+        .skill-bar {
+            flex-grow: 1;
+            height: 10px;
+            background-color: var(--bg-tertiary);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            border-radius: 5px;
+            background: var(--gradient-primary);
+            transition: width 1s ease-in-out;
         }
 
         .back-btn-section {
@@ -100,7 +241,7 @@
             font-weight: 600;
             transition: all 0.3s ease;
             box-shadow: var(--box-shadow-sm);
-            background: var(--gradient-secondary);
+            background: linear-gradient(135deg, #f59942 0%, #a78bfa 100%);
             color: white;
             text-decoration: none;
         }
@@ -115,6 +256,43 @@
             margin-right: 10px;
         }
 
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animated {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .content-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-radius: 3px;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .section-inner {
+                padding: 0 30px;
+            }
+            
+            .evaluation-item {
+                flex: 1 1 calc(50% - 30px);
+            }
+        }
+
         @media screen and (max-width: 768px) {
             .bloc-header {
                 padding: 80px 0 40px;
@@ -126,6 +304,19 @@
             
             .section-inner {
                 padding: 0 20px;
+            }
+
+            .project-card {
+                flex-direction: column;
+            }
+
+            .project-image {
+                flex: 0 0 auto;
+                min-width: auto;
+            }
+
+            .evaluation-item {
+                flex: 1 1 100%;
             }
         }
     </style>

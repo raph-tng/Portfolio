@@ -282,7 +282,7 @@ nav {
 .burger div {
     width: 25px;
     height: 3px;
-    background-color: var(--dark-color);
+    background-color: var(--text-primary);
     margin: 5px;
     transition: var(--transition);
 }
@@ -495,7 +495,7 @@ nav {
 }
 
 /* Skills - Bubbles Animation */
-#skills {
+#competences {
     background: var(--bg-secondary);
     border-top: 1px solid var(--border-color);
 }
@@ -804,9 +804,108 @@ nav {
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
+/* Soft Skills */
+.soft-skills {
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+}
+
+.soft-skills-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.soft-skills-category {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.soft-skills-category h3 {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.language-item {
+    margin-bottom: 30px;
+}
+
+.language-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.language-name {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.language-level {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.language-bar {
+    height: 12px;
+    background: var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.language-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 50%, #a78bfa 100%);
+    border-radius: 10px;
+    transition: width 1s cubic-bezier(0.25, 0.8, 0.25, 1);
+    animation: slideIn 1s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        width: 0 !important;
+    }
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.skill-tag {
+    display: inline-block;
+    padding: 12px 20px;
+    background: var(--bg-primary);
+    border: 2px solid var(--border-color);
+    border-radius: 25px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    transition: var(--transition);
+    cursor: default;
+}
+
+.skill-tag:hover {
+    border-color: var(--primary-color);
+    background: gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+    color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.15);
+}
+
 /* Projects */
 .projects {
-    background: linear-gradient(135deg, #f8f9fa 0%, #ececf5 100%);
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
 }
 
 .projects-container {
@@ -891,14 +990,14 @@ nav {
 .bloc-card {
     min-width: calc(33.333% - 20px);
     margin: 0 10px;
-    background-color: white;
+    background-color: var(--bg-primary);
     border-radius: var(--border-radius);
     padding: 35px;
     text-align: center;
     box-shadow: var(--box-shadow);
     transition: var(--transition);
     cursor: pointer;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
 }
 
 .bloc-card:hover {
@@ -1005,7 +1104,8 @@ nav {
 
 /* Contact */
 .contact {
-    background: linear-gradient(135deg, #f8f9fa 0%, #ececf5 100%);
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
 }
 
 .contact-container {
@@ -1144,8 +1244,13 @@ footer {
         flex-direction: column;
     }
     
-    .bloc-card {
+    .block-card {
         min-width: calc(50% - 20px);
+    }
+
+    .soft-skills-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
     }
     
     .timeline-container::before {
@@ -1212,7 +1317,7 @@ footer {
         position: fixed;
         right: 0;
         top: 70px;
-        background-color: white;
+        background-color: var(--bg-primary);
         flex-direction: column;
         width: 100%;
         height: calc(100vh - 70px);

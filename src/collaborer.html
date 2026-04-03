@@ -117,6 +117,160 @@
             margin-right: 10px;
         }
 
+        .projects-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-bottom: 20px;
+        }
+
+        .project-card {
+            display: flex;
+            background-color: var(--bg-secondary);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: var(--box-shadow-sm);
+            border: 1px solid var(--border-color);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .project-image {
+            flex: 0 0 30%;
+            min-width: 200px;
+        }
+
+        .project-placeholder {
+            height: 100%;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-primary);
+            color: white;
+            font-size: 3rem;
+        }
+
+        .project-info {
+            flex: 1;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #ec4899;
+        }
+
+        .project-info p {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        .project-info li {
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .project-info ul {
+            list-style: disc;
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn-small {
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #ec4899 0%, #d946ef 100%);
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-small:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--box-shadow);
+            filter: brightness(1.1);
+        }
+
+        .evaluation-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .evaluation-item {
+            flex: 1 1 calc(50% - 15px);
+            min-width: 250px;
+            background-color: var(--bg-secondary);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--box-shadow-sm);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .evaluation-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .evaluation-item h4 {
+            margin-bottom: 10px;
+            color: #ec4899;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .evaluation-item p {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .skill-level {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .skill-level-text {
+            font-weight: 700;
+            color: var(--text-primary);
+            white-space: nowrap;
+        }
+
+        .skill-bar {
+            flex-grow: 1;
+            height: 10px;
+            background-color: var(--bg-tertiary);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            border-radius: 5px;
+            background: linear-gradient(135deg, #ec4899 0%, #d946ef 100%);
+            transition: width 1s ease-in-out;
+        }
+
         @media screen and (max-width: 768px) {
             .bloc-header {
                 padding: 80px 0 40px;
@@ -128,6 +282,19 @@
             
             .section-inner {
                 padding: 0 20px;
+            }
+
+            .project-card {
+                flex-direction: column;
+            }
+
+            .project-image {
+                flex: 1;
+                min-height: 200px;
+            }
+
+            .evaluation-item {
+                flex: 1 1 100%;
             }
         }
     </style>
@@ -192,13 +359,15 @@
                     <div class="project-info">
                         <h3>SNC'Hess</h3>
                         <p>Plateforme de réservation de billets de train.</p>
-                        <li>Projet en équipe de 4</li>
-                        <li>Répartition des tâches</li>
-                        <li>Gestion de versions avec Git</li>
-                        <li>Utilisation de Trello pour le suivi des tâches</li>
+                        <ul>
+                            <li>Projet en équipe de 4</li>
+                            <li>Répartition des tâches</li>
+                            <li>Gestion de versions avec Git</li>
+                            <li>Utilisation de Trello pour le suivi des tâches</li>
+                        </ul>
                         <div class="project-links">
                             <a href="#" class="btn-small">Voir le projet</a>
-                        <a href="https://github.com/RaphaelDAV/SNC-Hess" class="btn-small">Code source</a>
+                            <a href="https://github.com/RaphaelDAV/SNC-Hess" class="btn-small">Code source</a>
                         </div>
                     </div>
                 </div>
@@ -208,10 +377,12 @@
                     <div class="project-info">
                         <h3>B.I.F.</h3>
                         <p>Site de simulation de gestion de comptes bancaires.</p>
-                        <li>Projet en équipe de 4</li>
-                        <li>Répartition des tâches</li>
-                        <li>Gestion de versions avec Git</li>
-                        <li>Utilisation de Trello pour le suivi des tâches</li>
+                        <ul>
+                            <li>Projet en équipe de 4</li>
+                            <li>Répartition des tâches</li>
+                            <li>Gestion de versions avec Git</li>
+                            <li>Utilisation de Trello pour le suivi des tâches</li>
+                        </ul>
                         <div class="project-links">
                             <a href="#" class="btn-small">Voir le projet</a>
                             <a href="https://github.com/Wedja10/BIF" class="btn-small">Code source</a>
@@ -224,9 +395,11 @@
                         <div class="project-info">
                             <h3>Brother - Goodies</h3>
                             <p>Plateforme de commande de goodies et de gestion de stock interne à l'entreprise</p>
-                            <li>Travailler sous la direction d'une cheffe de projet</li>
-                            <li>Répondre aux besoins des employés de l'entreprise et utilisateurs du site</li>
-                            <li>Réunions régulières avec l'équipe Digital Marketing</li>
+                            <ul>
+                                <li>Travailler sous la direction d'une cheffe de projet</li>
+                                <li>Répondre aux besoins des employés de l'entreprise et utilisateurs du site</li>
+                                <li>Réunions régulières avec l'équipe Digital Marketing</li>
+                            </ul>
                             <div class="project-links">
                                 <a href="#" class="btn-small">Voir le projet</a>
                             </div>
@@ -238,9 +411,11 @@
                         <div class="project-info">
                             <h3>Eiffel Time</h3>
                             <p>Développement d'une plateforme scolaire type ENT.</p>
-                            <li>Projet en groupe de 6, divisé en 2 équipes</li>
-                            <li>Réunions régulières avec l'équipe et le responsable du projet</li>
-                            <li>Gestion de projet et suivi des livrables et du cahier des charges</li>
+                            <ul>
+                                <li>Projet en groupe de 6, divisé en 2 équipes</li>
+                                <li>Réunions régulières avec l'équipe et le responsable du projet</li>
+                                <li>Gestion de projet et suivi des livrables et du cahier des charges</li>
+                            </ul>
                             <div class="project-links">
                                 <a href="https://eiffel-time.jawedessahli.com/login" class="btn-small">Voir le projet</a>
                                 <a href="https://github.com/Wedja10/Eiffel_Time" class="btn-small">Code source</a>
@@ -303,10 +478,11 @@
             </div>
 
             <p style="margin-top: 30px;">Axes d'amélioration :</p>
-            <br>
-            <li style="margin-left: 20px;">Améliorer ma gestion des conflits en cas de désaccords</li>
-            <li style="margin-left: 20px;">Développer mon assertivité pour faire valoir mes idées en laissant la place à celles des autres</li>
-            <li style="margin-left: 20px;">Travailler sur mes qualités en tant que leader pour pouvoir mener efficacement une équipe</li>  
+            <ul style="margin-top: 10px; margin-left: 20px;">
+                <li>Améliorer ma gestion des conflits en cas de désaccords</li>
+                <li>Développer mon assertivité pour faire valoir mes idées en laissant la place à celles des autres</li>
+                <li>Travailler sur mes qualités en tant que leader pour pouvoir mener efficacement une équipe</li>
+            </ul>  
         </div>
     </div>
 
